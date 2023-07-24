@@ -58,7 +58,7 @@ header {
 main {
   background-color: #222;
   display: flex;
-  height: 65vh;
+  height: 64.3vh;
   justify-content: space-evenly;
   align-items: center;
   gap: 13rem;
@@ -93,6 +93,7 @@ main {
   flex-direction: column;
   gap: 3.5rem;
   font-size: 1.3rem;
+  flex-basis: 20%;
 }
 
 @media (max-width: 870px) {

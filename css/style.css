@@ -7,13 +7,12 @@
 body {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
   color: #eee;
-  background-color: white;
+  background-color: #222;
 }
 
+/*Header or top part*/
 header {
-  background-color: #222;
   display: grid;
   height: 35vh;
   grid-template-columns: auto auto;
@@ -46,17 +45,22 @@ header {
 .number {
   grid-column: span 2;
   justify-self: center;
-  align-self: center;
   position: absolute;
-  top: 28%;
+  top: 29%;
   color: #222;
   background-color: white;
-  padding: 2rem;
   font-size: 3.5rem;
+  padding: 2rem;
+  width: 5rem;
+  text-align: center;
 }
 
+hr {
+  border: 0.2rem solid white;
+}
+
+/*Bottom part*/
 main {
-  background-color: #222;
   display: flex;
   height: 64.3vh;
   justify-content: space-evenly;
@@ -64,6 +68,7 @@ main {
   gap: 13rem;
 }
 
+/*Bottom left*/
 .left {
   display: flex;
   flex-direction: column;
@@ -77,9 +82,9 @@ main {
   width: 15rem;
   color: white;
   text-align: center;
-  background-color: #222;
+  background-color: inherit;
   font-size: 3rem;
-  border: solid white 0.3rem;
+  border: 0.3rem solid white;
 }
 
 .check {
@@ -88,14 +93,16 @@ main {
   font-size: 1.2rem;
 }
 
+/*Bottom right*/
 .right {
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
   font-size: 1.3rem;
-  flex-basis: 22.5rem;
+  flex-basis: 22.6rem;
 }
 
+/*Media queries*/
 @media (max-width: 870px) {
   .again {
     height: 3rem;
@@ -113,6 +120,7 @@ main {
   }
 
   main {
+    height: 62vh;
     flex-direction: column;
     gap: 0;
   }
@@ -129,6 +137,6 @@ main {
     align-self: center;
     margin-top: 3rem;
     flex-basis: auto;
-    width: 17rem;
+    width: 17.4rem;
   }
 }

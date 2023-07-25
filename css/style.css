@@ -120,7 +120,7 @@ main {
   }
 
   main {
-    height: 55vh;
+    height: 50vh;
     flex-direction: column;
     gap: 0;
   }

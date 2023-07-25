@@ -1,5 +1,5 @@
 # Guess My Number
-![Guess my Number](/assets/images/readme-guess-my-number.png)
+![Guess my Number](/assets/images/lfjaslkf.png)
 
 ## 💻 About the Project
 The player tries to find out what is the secret number. Dont't forget to give it a go on mobile, because this webpage is responsive!

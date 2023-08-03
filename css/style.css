@@ -108,6 +108,10 @@ main {
 
 /*Media queries*/
 @media (max-width: 870px) {
+  header {
+    height: 40vh;
+  }
+
   .again {
     height: 3rem;
     width: 7rem;
@@ -123,6 +127,10 @@ main {
     font-size: 1.5rem;
   }
 
+  hr {
+    top: 31%;
+  }
+
   main {
     height: 40vh;
     flex-direction: column;
@@ -136,7 +144,7 @@ main {
   .right {
     order: 1;
     gap: 1.5rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     justify-self: center;
     align-self: center;
     flex-basis: auto;

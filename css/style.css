@@ -11,7 +11,7 @@ body {
   background-color: #222;
 }
 
-/*Header or top part*/
+/*Top part*/
 header {
   display: grid;
   height: 35vh;
@@ -99,7 +99,7 @@ main {
   flex-direction: column;
   gap: 3.5rem;
   font-size: 1.3rem;
-  flex-basis: 22.6rem;
+  flex-basis: 25.2rem;
 }
 
 /*Media queries*/
@@ -120,7 +120,7 @@ main {
   }
 
   main {
-    height: 52vh;
+    height: 50vh;
     flex-direction: column;
     gap: 0;
   }

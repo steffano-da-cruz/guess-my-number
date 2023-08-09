@@ -13,14 +13,13 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <header>
+    <header class="back-color">
       <button class="again">Again!</button>
       <p class="limit">(Between 1 and 20)</p>
-      <h1 class="title">Guess My Number!</h1>
+      <h1>Guess My Number!</h1>
       <div class="number">?</div>
     </header>
-    <hr />
-    <main>
+    <main class="back-color">
       <section class="left">
         <input class="guess" type="number" min="0" max="20" required />
         <button class="check">Check!</button>
@@ -28,9 +27,9 @@
       <section class="right">
         <p class="message">Start guessing...</p>
         <p>💯 Score: <span class="score">20</span></p>
-        <p>🥇 HighScore: <span class="highscore">0</span></p>
+        <p>🥇 Highscore: <span class="highscore">0</span></p>
       </section>
     </main>
+    <script src="./js/script.js"></script>
   </body>
-  <script src="./js/script.js"></script>
 </html>

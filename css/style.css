@@ -6,7 +6,7 @@
 
 html {
   background-color: #222;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
 body {

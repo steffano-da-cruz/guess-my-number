@@ -4,10 +4,6 @@
   font-family: "Press Start 2P", cursive;
 }
 
-html {
-  background-color: #222;
-}
-
 body {
   display: flex;
   flex-direction: column;

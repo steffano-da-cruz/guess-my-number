@@ -109,7 +109,7 @@ main {
 
 @media (max-width: 860px) {
   header {
-    height: 20vh;
+    height: 30vh;
   }
 
   .again {
@@ -124,21 +124,20 @@ main {
   h1 {
     font-size: 1.5rem;
     text-align: center;
-    margin-bottom: 2rem;
   }
 
   .number {
     font-size: 3.3rem;
     padding: 0.8rem;
     height: 3.5rem;
-    top: 16%;
+    top: 27%;
   }
 
   main {
     justify-content: center;
     flex-direction: column;
-    gap: 1rem;
-    height: 40vh;
+    gap: 3rem;
+    height: 50vh;
   }
 
   .left {
@@ -152,12 +151,12 @@ main {
   .guess {
     height: 4rem;
     width: 10rem;
-    font-size: 3.1rem;
+    font-size: 2.4rem;
   }
 
   .check {
-    font-size: 0.9rem;
-    padding: 0.9rem;
+    font-size: 1rem;
+    padding: 1rem;
   }
 
   .right {
@@ -168,7 +167,5 @@ main {
     gap: 1rem;
     font-size: 0.9rem;
     text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
   }
 }

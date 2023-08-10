@@ -4,6 +4,10 @@
   font-family: "Press Start 2P", cursive;
 }
 
+html {
+  background-color: #222;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -65,7 +69,7 @@ main {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 64.1vh;
+  height: 64vh;
 }
 
 /*Bottom left*/
@@ -104,32 +108,37 @@ main {
 /*Media queries*/
 
 @media (max-width: 860px) {
+  header {
+    height: 20vh;
+  }
+
   .again {
-    font-size: 1rem;
-    padding: 1rem;
+    font-size: 0.9rem;
+    padding: 0.9rem;
   }
 
   .limit {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 
   h1 {
     font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 2rem;
   }
 
   .number {
     font-size: 3.3rem;
     padding: 0.8rem;
     height: 3.5rem;
-    top: 31%;
+    top: 16%;
   }
 
   main {
     justify-content: center;
     flex-direction: column;
-    gap: 3rem;
-    height: 30vh;
+    gap: 1rem;
+    height: 40vh;
   }
 
   .left {
@@ -141,14 +150,14 @@ main {
   }
 
   .guess {
-    height: 6rem;
-    width: 13rem;
+    height: 4rem;
+    width: 10rem;
     font-size: 3.1rem;
   }
 
   .check {
-    font-size: 1rem;
-    padding: 1rem;
+    font-size: 0.9rem;
+    padding: 0.9rem;
   }
 
   .right {
@@ -156,8 +165,10 @@ main {
     width: 26.9rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    font-size: 1rem;
+    gap: 1rem;
+    font-size: 0.9rem;
     text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
   }
 }

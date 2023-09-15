@@ -12,8 +12,11 @@ const againButton = document.querySelector(".again");
 const message = document.querySelector(".message");
 const number = document.querySelector(".number");
 const backColor = document.querySelectorAll(".back-color");
-const inputFocus = document.querySelector(".guess");
 const guess = document.querySelector(".guess");
+
+const guessFocus = function () {
+  guess.focus();
+};
 
 const displayMessage = function (result) {
   message.textContent = result;
@@ -41,7 +44,7 @@ const displayGuess = function (result) {
   guess.value = result;
 };
 
-inputFocus.focus();
+guessFocus();
 
 checkButton.addEventListener("click", function () {
   const guessValue = Number(guess.value);
@@ -78,7 +81,7 @@ checkButton.addEventListener("click", function () {
 
 //When the player starts over
 againButton.addEventListener("click", function () {
-  inputFocus.focus();
+  guessFocus();
 
   secretNumber = Math.trunc(Math.random() * 20 + 1);
   scoreValue = 20;

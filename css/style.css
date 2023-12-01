@@ -46,7 +46,7 @@ body {
 
 .left,
 .right {
-  flex-basis: 30rem;
+  width: 25rem;
   flex-shrink: 0;
 }
 
@@ -106,7 +106,6 @@ body {
 }
 
 .guess-number {
-  height: 7rem;
   width: 15rem;
   font-size: 3rem;
   text-align: center;
@@ -132,17 +131,24 @@ body {
 
 @media (max-width: 1235px) {
   .btn {
-    font-size: 1rem;
-    height: 3rem;
-    width: 9rem;
+    font-size: 0.9rem;
+    height: 2rem;
+    width: 7rem;
   }
 
   .limit {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
   }
 
   .title {
-    font-size: 1.9rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .show-number {
+    font-size: 3rem;
+    padding: 1rem;
+    top: 88%;
   }
 
   .main-container {
@@ -152,20 +158,26 @@ body {
 
   .left,
   .right {
-    flex-basis: 7rem;
+    width: 20rem;
   }
 
   .left {
     order: 2;
   }
 
+  .guess-number {
+    font-size: 2.1rem;
+    width: 12rem;
+  }
+
   .right {
     order: 1;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
+    font-size: 1rem;
   }
 
   .right p {
-    margin-left: 3.5rem;
+    margin-left: 2rem;
   }
 
   .show-message {

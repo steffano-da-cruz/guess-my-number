@@ -154,7 +154,7 @@ body,
   .main-container {
     flex-direction: column;
     gap: 1rem;
-    height: 60vh;
+    height: 55vh;
   }
 
   .left,

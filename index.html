@@ -1,33 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" class="back-color">
+<html lang="us">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guess My Number!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="./assets/images/number-one.png" />
     <link rel="stylesheet" href="./css/style.css" />
+    <title>Guess My Number!</title>
   </head>
   <body>
-    <header class="back-color">
-      <button class="again">Again!</button>
+    <header class="header-container">
+      <button class="btn again">Again!</button>
       <p class="limit">(Between 1 and 20)</p>
-      <h1>Guess My Number!</h1>
-      <div class="number">?</div>
+      <h1 class="title">Guess My Number!</h1>
+      <p class="show-number">?</p>
     </header>
-    <main class="back-color">
+    <main class="main-container">
       <section class="left">
-        <input class="guess" type="number" min="0" max="20" required />
-        <button class="check">Check!</button>
+        <input class="guess-number" type="number" min="0" max="20" autofocus />
+        <button class="btn check">Check!</button>
       </section>
       <section class="right">
-        <p class="message">Start guessing...</p>
-        <p>💯 Score: <span class="score">20</span></p>
-        <p>🥇 Highscore: <span class="highscore">0</span></p>
+        <p class="show-message">Start guessing...</p>
+        <p class="label-score">💯 Score: <span class="show-score">20</span></p>
+        <p class="label-highscore">
+          🥇 Highscore: <span class="show-highscore">0</span>
+        </p>
       </section>
     </main>
     <script src="./js/script.js"></script>

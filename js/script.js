@@ -1,95 +1,80 @@
 "use strict";
 
-let secretNumber = Math.trunc(Math.random() * 20 + 1);
-let scoreValue = 20;
-let highscoreValue = 0;
-
-//Selecting elements
-const score = document.querySelector(".score");
-const highscore = document.querySelector(".highscore");
+const guessNumber = document.querySelector(".guess-number");
 const checkButton = document.querySelector(".check");
 const againButton = document.querySelector(".again");
-const message = document.querySelector(".message");
-const number = document.querySelector(".number");
-const backColor = document.querySelectorAll(".back-color");
-const guess = document.querySelector(".guess");
+const showNumber = document.querySelector(".show-number");
+const showMessage = document.querySelector(".show-message");
+const showScore = document.querySelector(".show-score");
+const showHighscore = document.querySelector(".show-highscore");
+const headerContainer = document.querySelector(".header-container");
+const mainContainer = document.querySelector(".main-container");
 
-const guessFocus = function () {
-  guess.focus();
-};
+let secretNumber = Math.trunc(Math.random() * 20 + 1);
+let score = 20;
+let highscore = 0;
 
 const displayMessage = function (result) {
-  message.textContent = result;
+  showMessage.textContent = result;
 };
 
-const displayColor = function (result) {
-  for (let i = 0; i < backColor.length; i++) {
-    backColor[i].style.backgroundColor = result;
-  }
+const displayScore = function () {
+  showScore.textContent = score;
 };
 
-const displayScore = function (result) {
-  score.textContent = result;
+const displayEmpty = function () {
+  guessNumber.value = "";
+  guessNumber.focus();
 };
-
-const displayWidth = function (result) {
-  number.style.width = result;
-};
-
-const displayNumber = function (result) {
-  number.textContent = result;
-};
-
-const displayGuess = function (result) {
-  guess.value = result;
-};
-
-guessFocus();
 
 checkButton.addEventListener("click", function () {
-  const guessValue = Number(guess.value);
+  const guess = Number(guessNumber.value);
 
-  //When there's no input
-  if (guessValue === 0 || !guessValue) {
+  // When there is no input or the input is 0
+  if (!guess) {
     displayMessage("⛔ No number...");
+    displayEmpty();
 
-    //When the player wins
-  } else if (guessValue === secretNumber) {
+    // When player wins
+  } else if (guess === secretNumber) {
     displayMessage("🎉 Correct number!");
-    displayColor("#60b347");
-    displayWidth("10rem");
-    displayNumber(secretNumber);
+    headerContainer.style.backgroundColor = "#60b347";
+    mainContainer.style.backgroundColor = "#60b347";
+    showNumber.style.width = "15rem";
+    showNumber.textContent = secretNumber;
 
-    if (scoreValue > highscoreValue) {
-      highscoreValue = scoreValue;
-      highscore.textContent = highscoreValue;
+    if (score > highscore) {
+      highscore = score;
+      showHighscore.textContent = highscore;
     }
 
-    //When the guess is wrong
-  } else if (guessValue > secretNumber || guessValue < secretNumber) {
-    guessValue > secretNumber
-      ? displayMessage("📈 Too high!")
-      : displayMessage("📉 Too low!");
-    scoreValue--;
-    displayScore(scoreValue);
-    if (scoreValue < 1) {
+    // When guess is wrong
+  } else if (guess !== secretNumber) {
+    score--;
+    displayScore();
+
+    if (score >= 1) {
+      displayMessage(guess > secretNumber ? `📈 Too high!` : `📉 Too low!`);
+    }
+
+    // When player loses
+    else {
+      score = 0;
+      displayScore();
       displayMessage("💥 You lost the game...");
-      displayScore(0);
     }
   }
 });
 
-//When the player starts over
+// When player wants to start over
 againButton.addEventListener("click", function () {
-  guessFocus();
-
+  score = 20;
   secretNumber = Math.trunc(Math.random() * 20 + 1);
-  scoreValue = 20;
-
-  displayNumber("?");
-  displayScore(scoreValue);
+  displayScore();
   displayMessage("Start guessing...");
-  displayColor("#222");
-  displayWidth("5.2rem");
-  displayGuess("");
+  displayEmpty();
+  headerContainer.style.backgroundColor = "#222";
+  mainContainer.style.backgroundColor = "#222";
+  showNumber.style.width = "9rem";
+  showNumber.textContent = "?";
 });

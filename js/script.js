@@ -7,8 +7,7 @@ const showNumber = document.querySelector(".show-number");
 const showMessage = document.querySelector(".show-message");
 const showScore = document.querySelector(".show-score");
 const showHighscore = document.querySelector(".show-highscore");
-const headerContainer = document.querySelector(".header-container");
-const mainContainer = document.querySelector(".main-container");
+const showColor = document.querySelector(".container");
 
 let secretNumber = Math.trunc(Math.random() * 20 + 1);
 let score = 20;
@@ -38,8 +37,7 @@ checkButton.addEventListener("click", function () {
     // When player wins
   } else if (guess === secretNumber) {
     displayMessage("🎉 Correct number!");
-    headerContainer.style.backgroundColor = "#60b347";
-    mainContainer.style.backgroundColor = "#60b347";
+    showColor.style.backgroundColor = "#60b347";
     showNumber.style.width = "15rem";
     showNumber.textContent = secretNumber;
 
@@ -73,8 +71,7 @@ againButton.addEventListener("click", function () {
   displayScore();
   displayMessage("Start guessing...");
   displayEmpty();
-  headerContainer.style.backgroundColor = "#222";
-  mainContainer.style.backgroundColor = "#222";
+  showColor.style.backgroundColor = "#222";
   showNumber.style.width = "9rem";
   showNumber.textContent = "?";
 });

@@ -14,7 +14,7 @@ body {
   background-color: #222;
 }
 
-/* Refactored */
+/* REFACTORED */
 
 .btn,
 .show-number {
@@ -39,7 +39,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Buttons */
+/* BUTTONS */
 
 .btn {
   border: none;
@@ -53,7 +53,7 @@ body {
   background-color: #c4c4c4;
 }
 
-/* Header */
+/* HEADER */
 
 .header-container {
   display: grid;
@@ -89,7 +89,7 @@ body {
   top: 82%;
 }
 
-/* Main */
+/* MAIN */
 
 .main-container {
   display: flex;
@@ -128,7 +128,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Media queries */
+/* MEDIA QUERIES */
 
 @media (max-width: 768px) {
   .btn {

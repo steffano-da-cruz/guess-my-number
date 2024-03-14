@@ -48,6 +48,7 @@ const playingGame = function () {
       if (score < 1) {
         showScore.textContent = 0;
         showMessage.textContent = "💥 You lost...";
+        playing = false;
       }
     }
   }

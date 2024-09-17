@@ -1,82 +1,136 @@
 "use strict";
 
+const inputValue = document.querySelector(".guess-number");
 const checkButton = document.querySelector(".check");
 const againButton = document.querySelector(".again");
-const guessNumber = document.querySelector(".guess-number");
-const showColor = document.querySelector(".container");
 const showNumber = document.querySelector(".show-number");
+const showColor = document.querySelector(".container");
 const showMessage = document.querySelector(".show-message");
 const showScore = document.querySelector(".show-score");
 const showHighscore = document.querySelector(".show-highscore");
 
-/* Starting conditions */
-let guessValue = 0;
-let secretNumber = Math.trunc(Math.random() * 20 + 1);
+// Starting conditions
+
 let score = 20;
 let highscore = 0;
+let secretNumber = Math.trunc(Math.random() * 20 + 1);
 let playing = true;
 
-const playingGame = function () {
-  guessValue = Number(guessNumber.value);
-  if (playing) {
-    /* When the player doesn't guess or type 0 */
-    if (!guessValue) {
-      showMessage.textContent = "⛔ No number...";
+const inputFocus = function () {
+  inputValue.focus();
+};
 
-      /* When the player wins */
-    } else if (guessValue === secretNumber) {
-      showColor.style.backgroundColor = "#27b83f";
-      showNumber.style.width = "15rem";
-      showNumber.textContent = secretNumber;
-      showMessage.textContent = "🎉 Correct number!";
-      if (score > highscore) {
+const playerWins = function () {
+  showColor.style.backgroundColor = "#27b83f";
+  showNumber.textContent = secretNumber;
+  showNumber.style.width = "15rem";
+  showMessage.textContent = "🎉 Correct number!";
+
+  playing = false;
+};
+
+const playerLoses = function () {
+  showColor.style.backgroundColor = "#ff0000";
+  showMessage.textContent = "💥 You lost...";
+
+  playing = false;
+};
+
+const startOver = function () {
+  showScore.textContent = score;
+  showColor.style.backgroundColor = "#222";
+  showNumber.textContent = "?";
+  showNumber.style.width = "9rem";
+  showMessage.textContent = "Start guessing...";
+  inputValue.value = "";
+  inputFocus();
+
+  playing = true;
+};
+
+checkButton.addEventListener("click", function () {
+  const value = Number(inputValue.value);
+
+  //When there's no value or the value is 0
+  if (!value) {
+    if (playing) {
+      showMessage.textContent = "⛔ No Number...";
+      inputFocus();
+    }
+
+    //When the player wins
+  } else if (value === secretNumber) {
+    if (playing) {
+      playerWins();
+
+      if (score >= highscore) {
         highscore = score;
         showHighscore.textContent = highscore;
       }
-      playing = false;
+    }
 
-      /* When the guess is wrong */
-    } else if (guessValue !== secretNumber) {
+    //When the guess is wrong
+  } else if (value !== secretNumber) {
+    if (playing) {
       score--;
       showScore.textContent = score;
 
-      guessValue > secretNumber
-        ? (showMessage.textContent = "📈 Too high!")
-        : (showMessage.textContent = "📉 Too low!");
+      value < secretNumber
+        ? (showMessage.textContent = "📉 Too low")
+        : (showMessage.textContent = "📈 Too high");
 
-      /* When the player loses */
-      if (score < 1) {
-        showScore.textContent = 0;
-        showMessage.textContent = "💥 You lost...";
-        playing = false;
+      //When the player loses
+      if (score === 0) {
+        playerLoses();
       }
     }
   }
-};
+});
 
-const resetingGame = function () {
-  playing = true;
-  secretNumber = Math.trunc(Math.random() * 20 + 1);
-  score = 20;
-
-  showColor.style.backgroundColor = "#222";
-  showNumber.style.width = "9rem";
-  showNumber.textContent = "?";
-  showScore.textContent = score;
-  showMessage.textContent = "Start guessing...";
-  guessNumber.value = "";
-  guessNumber.focus();
-};
-
-/* Using the mouse to confirm */
-checkButton.addEventListener("click", playingGame);
-
-/* Using the enter key to confirm */
-guessNumber.addEventListener("keydown", function (e) {
+inputValue.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
-    playingGame();
+    const value = Number(inputValue.value);
+
+    //When there's no value or the value is 0
+    if (!value) {
+      if (playing) {
+        showMessage.textContent = "⛔ No Number...";
+        inputFocus();
+      }
+
+      //When the player wins
+    } else if (value === secretNumber) {
+      if (playing) {
+        playerWins();
+
+        if (score >= highscore) {
+          highscore = score;
+          showHighscore.textContent = highscore;
+        }
+      }
+
+      //When the guess is wrong
+    } else if (value !== secretNumber) {
+      if (playing) {
+        score--;
+        showScore.textContent = score;
+
+        value < secretNumber
+          ? (showMessage.textContent = "📉 Too low")
+          : (showMessage.textContent = "📈 Too high");
+
+        //When the player loses
+        if (score === 0) {
+          playerLoses();
+        }
+      }
+    }
   }
 });
 
-/* When the player wants to start over */
-againButton.addEventListener("click", resetingGame);
+againButton.addEventListener("click", function () {
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20 + 1);
+
+  startOver();
+});
